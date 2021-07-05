@@ -181,6 +181,7 @@ namespace garantiTakip
             this.txtTemizle.TabIndex = 13;
             this.txtTemizle.Text = "Temizle";
             this.txtTemizle.UseVisualStyleBackColor = true;
+            this.txtTemizle.Click += new System.EventHandler(this.txtTemizle_Click);
             // 
             // label4
             // 
