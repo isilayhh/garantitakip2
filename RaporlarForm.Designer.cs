@@ -77,6 +77,7 @@ namespace garantiTakip
             this.txtCariAra.Name = "txtCariAra";
             this.txtCariAra.Size = new System.Drawing.Size(338, 22);
             this.txtCariAra.TabIndex = 3;
+            this.txtCariAra.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCariAra_KeyDown);
             // 
             // txtSil
             // 
@@ -84,6 +85,7 @@ namespace garantiTakip
             this.txtSil.Name = "txtSil";
             this.txtSil.Size = new System.Drawing.Size(338, 22);
             this.txtSil.TabIndex = 5;
+//            this.txtSil.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSil_KeyDown);
             // 
             // label1
             // 

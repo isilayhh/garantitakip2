@@ -51,22 +51,11 @@ namespace garantiTakip
                 x.tbl_baslangicBitisTarih.BİTİSTARİH
             }).ToList();
 
-            
-
         }
-        private void RaporlarForm_Load(object sender, EventArgs e)
+        public void Ara()
         {
-
-
-            Listele();
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            
             string ad = txtCariAra.Text;
-            
+
             dataGridView1.DataSource = db.tbl_cari.Select(x => new
             {
                 x.IND,
@@ -97,6 +86,19 @@ namespace garantiTakip
                 x.tbl_baslangicBitisTarih.BİTİSTARİH
             }).Where(x => x.FIRMAADI.Contains(ad)).ToList();
         }
+        private void RaporlarForm_Load(object sender, EventArgs e)
+        {
+
+
+            Listele();
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            Ara();
+        }
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -123,5 +125,15 @@ namespace garantiTakip
                 MessageBox.Show("İd Bulunamadı");
             }
         }
+
+        private void txtCariAra_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                Ara();
+            }
+        }
+
+       
     }
 }

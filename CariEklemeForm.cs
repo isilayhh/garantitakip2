@@ -46,7 +46,7 @@ namespace garantiTakip
             //bize mesaj gösterir yetkilinin sisteme kayıtlı olduğuna dair.
 
             tbl_Yetkili yetkili1 = new tbl_Yetkili();
-            if (txtYetkiliAd.Text!=""&&txtYetkiliSoyad.Text!=""&&txtYetkiliTel.Text!="")
+            if (txtYetkiliAd.Text!=""&&txtYetkiliSoyad.Text!=""&&txtYetkiliTel.Text!= "(   )    -")
             {               
                 yetkili1.AD = txtYetkiliAd.Text.ToUpper();
                 yetkili1.SOYAD = txtYetkiliSoyad.Text.ToUpper();
