@@ -39,9 +39,6 @@ namespace garantiTakip
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.viewMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.hizmetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.verilenHizmetlerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -53,13 +50,16 @@ namespace garantiTakip
             this.sektörEkleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sektörDüzenleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.raporlarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cariRaporlarıToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.müşteriYetkiliRaporlarıToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sonAcılanlar = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.cariRaporlarıToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.müşteriYetkiliRaporlarıToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+            this.editMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -141,24 +141,6 @@ namespace garantiTakip
             this.exitToolStripMenuItem.Text = "Ç&ıkış";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolsStripMenuItem_Click);
             // 
-            // editMenu
-            // 
-            this.editMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripSeparator6,
-            this.toolStripSeparator7});
-            this.editMenu.Name = "editMenu";
-            this.editMenu.Size = new System.Drawing.Size(14, 24);
-            // 
-            // toolStripSeparator6
-            // 
-            this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(71, 6);
-            // 
-            // toolStripSeparator7
-            // 
-            this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(71, 6);
-            // 
             // viewMenu
             // 
             this.viewMenu.Name = "viewMenu";
@@ -239,6 +221,20 @@ namespace garantiTakip
             this.raporlarToolStripMenuItem.Text = "Raporlar";
             this.raporlarToolStripMenuItem.Click += new System.EventHandler(this.raporlarToolStripMenuItem_Click);
             // 
+            // cariRaporlarıToolStripMenuItem
+            // 
+            this.cariRaporlarıToolStripMenuItem.Name = "cariRaporlarıToolStripMenuItem";
+            this.cariRaporlarıToolStripMenuItem.Size = new System.Drawing.Size(259, 26);
+            this.cariRaporlarıToolStripMenuItem.Text = "Cari  Raporları";
+            this.cariRaporlarıToolStripMenuItem.Click += new System.EventHandler(this.cariRaporlarıToolStripMenuItem_Click);
+            // 
+            // müşteriYetkiliRaporlarıToolStripMenuItem
+            // 
+            this.müşteriYetkiliRaporlarıToolStripMenuItem.Name = "müşteriYetkiliRaporlarıToolStripMenuItem";
+            this.müşteriYetkiliRaporlarıToolStripMenuItem.Size = new System.Drawing.Size(259, 26);
+            this.müşteriYetkiliRaporlarıToolStripMenuItem.Text = "Müşteri/ Yetkili  Raporları";
+            this.müşteriYetkiliRaporlarıToolStripMenuItem.Click += new System.EventHandler(this.müşteriYetkiliRaporlarıToolStripMenuItem_Click);
+            // 
             // sonAcılanlar
             // 
             this.sonAcılanlar.Name = "sonAcılanlar";
@@ -269,19 +265,23 @@ namespace garantiTakip
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // cariRaporlarıToolStripMenuItem
+            // toolStripSeparator6
             // 
-            this.cariRaporlarıToolStripMenuItem.Name = "cariRaporlarıToolStripMenuItem";
-            this.cariRaporlarıToolStripMenuItem.Size = new System.Drawing.Size(259, 26);
-            this.cariRaporlarıToolStripMenuItem.Text = "Cari  Raporları";
-            this.cariRaporlarıToolStripMenuItem.Click += new System.EventHandler(this.cariRaporlarıToolStripMenuItem_Click);
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(221, 6);
             // 
-            // müşteriYetkiliRaporlarıToolStripMenuItem
+            // toolStripSeparator7
             // 
-            this.müşteriYetkiliRaporlarıToolStripMenuItem.Name = "müşteriYetkiliRaporlarıToolStripMenuItem";
-            this.müşteriYetkiliRaporlarıToolStripMenuItem.Size = new System.Drawing.Size(259, 26);
-            this.müşteriYetkiliRaporlarıToolStripMenuItem.Text = "Müşteri/ Yetkili  Raporları";
-            this.müşteriYetkiliRaporlarıToolStripMenuItem.Click += new System.EventHandler(this.müşteriYetkiliRaporlarıToolStripMenuItem_Click);
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(221, 6);
+            // 
+            // editMenu
+            // 
+            this.editMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripSeparator6,
+            this.toolStripSeparator7});
+            this.editMenu.Name = "editMenu";
+            this.editMenu.Size = new System.Drawing.Size(14, 24);
             // 
             // MDIParent1
             // 
@@ -313,15 +313,12 @@ namespace garantiTakip
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel;
         private System.Windows.Forms.ToolStripMenuItem fileMenu;
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem editMenu;
         private System.Windows.Forms.ToolStripMenuItem viewMenu;
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
@@ -338,6 +335,9 @@ namespace garantiTakip
         private System.Windows.Forms.ToolStripMenuItem sonAcılanlar;
         private System.Windows.Forms.ToolStripMenuItem cariRaporlarıToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem müşteriYetkiliRaporlarıToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editMenu;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
     }
 }
 

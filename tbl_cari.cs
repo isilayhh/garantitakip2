@@ -62,5 +62,6 @@ namespace garantiTakip
         public virtual tbl_Yetkili tbl_Yetkili { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbl_marka> tbl_marka { get; set; }
+        public virtual tbl_personel tbl_personel { get; set; }
     }
 }

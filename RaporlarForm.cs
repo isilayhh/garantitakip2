@@ -43,7 +43,10 @@ namespace garantiTakip
                 x.ADRESSEVK,
                 x.PARABIRIMI,
                 x.IL,
+                x.tbl_personel.PERSONELAD,
+                x.tbl_personel.tbl_yorum.YORUM,
                 x.PERSONELNO,
+               
                 x.tbl_status.STATUS,
 
                 x.tbl_hizmetturu.HIZMETTURU,

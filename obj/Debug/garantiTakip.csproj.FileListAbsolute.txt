@@ -68,3 +68,4 @@ C:\Users\yusuf\OneDrive\Masaüstü\garantitakip2\obj\Debug\garantiTakip.csproj.C
 C:\Users\yusuf\OneDrive\Masaüstü\garantitakip2\obj\Debug\garantiTakip.csproj.CopyComplete
 C:\Users\yusuf\OneDrive\Masaüstü\garantitakip2\obj\Debug\garantiTakip.exe
 C:\Users\yusuf\OneDrive\Masaüstü\garantitakip2\obj\Debug\garantiTakip.pdb
+C:\Users\yusuf\OneDrive\Masaüstü\garantitakip2\obj\Debug\garantiTakip.PersonelListe.resources
