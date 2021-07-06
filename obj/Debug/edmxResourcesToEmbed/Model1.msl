@@ -223,5 +223,29 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="tbl_personel">
+      <EntityTypeMapping TypeName="stajyerModel.tbl_personel">
+        <MappingFragment StoreEntitySet="tbl_personel">
+          <ScalarProperty Name="FirmaNo" ColumnName="FirmaNo" />
+          <ScalarProperty Name="PERSONELYORUM" ColumnName="PERSONELYORUM" />
+          <ScalarProperty Name="PERSONELADRES" ColumnName="PERSONELADRES" />
+          <ScalarProperty Name="PERSONELTEL" ColumnName="PERSONELTEL" />
+          <ScalarProperty Name="PERSONELTC" ColumnName="PERSONELTC" />
+          <ScalarProperty Name="PERSONELMAİL" ColumnName="PERSONELMAİL" />
+          <ScalarProperty Name="PERSONELSOYAD" ColumnName="PERSONELSOYAD" />
+          <ScalarProperty Name="PERSONELAD" ColumnName="PERSONELAD" />
+          <ScalarProperty Name="IND" ColumnName="IND" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_yorum">
+      <EntityTypeMapping TypeName="stajyerModel.tbl_yorum">
+        <MappingFragment StoreEntitySet="tbl_yorum">
+          <ScalarProperty Name="PersonelNo" ColumnName="PersonelNo" />
+          <ScalarProperty Name="YORUM" ColumnName="YORUM" />
+          <ScalarProperty Name="IND" ColumnName="IND" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>
