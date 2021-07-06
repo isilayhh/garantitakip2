@@ -14,12 +14,6 @@ namespace garantiTakip
     
     public partial class tbl_Yetkili
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public tbl_Yetkili()
-        {
-            this.tbl_cari = new HashSet<tbl_cari>();
-        }
-    
         public int IND { get; set; }
         public Nullable<int> FIRMANO { get; set; }
         public string AD { get; set; }
@@ -33,7 +27,6 @@ namespace garantiTakip
         public string KOD4 { get; set; }
         public string KOD5 { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tbl_cari> tbl_cari { get; set; }
+        public virtual tbl_cari tbl_cari { get; set; }
     }
 }

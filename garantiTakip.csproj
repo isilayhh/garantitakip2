@@ -80,11 +80,41 @@
     <Compile Include="FrmAra.Designer.cs">
       <DependentUpon>FrmAra.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmGuncelle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGuncelle.designer.cs">
+      <DependentUpon>frmGuncelle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmHizmetTuru.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHizmetTuru.designer.cs">
+      <DependentUpon>frmHizmetTuru.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmListele.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmListele.designer.cs">
+      <DependentUpon>frmListele.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSektor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSektor.designer.cs">
+      <DependentUpon>FrmSektor.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmSifreGüncelle.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmSifreGüncelle.Designer.cs">
       <DependentUpon>FrmSifreGüncelle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSil.designer.cs">
+      <DependentUpon>frmSil.cs</DependentUpon>
     </Compile>
     <Compile Include="GarantiBaşlatForm.cs">
       <SubType>Form</SubType>
@@ -215,8 +245,23 @@
     <EmbeddedResource Include="FrmAra.resx">
       <DependentUpon>FrmAra.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmGuncelle.resx">
+      <DependentUpon>frmGuncelle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHizmetTuru.resx">
+      <DependentUpon>frmHizmetTuru.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmListele.resx">
+      <DependentUpon>frmListele.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSektor.resx">
+      <DependentUpon>FrmSektor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmSifreGüncelle.resx">
       <DependentUpon>FrmSifreGüncelle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSil.resx">
+      <DependentUpon>frmSil.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GarantiBaşlatForm.resx">
       <DependentUpon>GarantiBaşlatForm.cs</DependentUpon>

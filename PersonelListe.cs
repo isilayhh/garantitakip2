@@ -31,21 +31,6 @@ namespace garantiTakip
                 x.tbl_personel.tbl_yorum.YORUM
             }).ToList();
 
-            //tbl_personel personel = new tbl_personel();
-            //personel = db.tbl_personel.Where(x => x.PERSONELAD == "Murat").FirstOrDefault();
-            //personel.PERSONELADRES = "Merkez";
-            //db.SaveChanges();
-            //dataGridView1.DataSource = db.tbl_personel.Select(x => new
-            //{
-            //    x.PERSONELAD,
-            //    x.PERSONELSOYAD,
-            //    x.PERSONELTC,
-            //    x.PERSONELADRES,
-            //    x.PERSONELMAİL,
-            //    x.PERSONELTEL,
-            //    x.PERSONELDURUM
-            //}).ToList();
-
         }
     }
 }

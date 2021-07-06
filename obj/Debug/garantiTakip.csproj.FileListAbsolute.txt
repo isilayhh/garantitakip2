@@ -69,3 +69,8 @@ C:\Users\yusuf\OneDrive\Masaüstü\garantitakip2\obj\Debug\garantiTakip.csproj.C
 C:\Users\yusuf\OneDrive\Masaüstü\garantitakip2\obj\Debug\garantiTakip.exe
 C:\Users\yusuf\OneDrive\Masaüstü\garantitakip2\obj\Debug\garantiTakip.pdb
 C:\Users\yusuf\OneDrive\Masaüstü\garantitakip2\obj\Debug\garantiTakip.PersonelListe.resources
+C:\Users\yusuf\OneDrive\Masaüstü\garantitakip2\obj\Debug\garantiTakip.FrmSektor.resources
+C:\Users\yusuf\OneDrive\Masaüstü\garantitakip2\obj\Debug\garantiTakip.frmGuncelle.resources
+C:\Users\yusuf\OneDrive\Masaüstü\garantitakip2\obj\Debug\garantiTakip.frmHizmetTuru.resources
+C:\Users\yusuf\OneDrive\Masaüstü\garantitakip2\obj\Debug\garantiTakip.frmListele.resources
+C:\Users\yusuf\OneDrive\Masaüstü\garantitakip2\obj\Debug\garantiTakip.frmSil.resources

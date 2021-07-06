@@ -16,7 +16,7 @@ namespace garantiTakip
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new PersonelListe());
+            Application.Run(new MDIParent1());
 
 
 

@@ -114,5 +114,50 @@ namespace garantiTakip
             childForm.Text = "Pencere " + childFormNumber++;
             childForm.Show();
         }
+
+        private void sektörListesiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmSektor childForm = new FrmSektor();
+            childForm.MdiParent = this;
+            childForm.WindowState = FormWindowState.Maximized;
+            childForm.Text = "Pencere " + childFormNumber++;
+            childForm.Show();
+        }
+
+        private void listeleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmListele childForm = new frmListele();
+            childForm.MdiParent = this;
+            childForm.WindowState = FormWindowState.Maximized;
+            childForm.Text = "Pencere " + childFormNumber++;
+            childForm.Show();
+        }
+
+        private void hizmetToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmHizmetTuru childForm = new frmHizmetTuru();
+            childForm.MdiParent = this;
+            childForm.WindowState = FormWindowState.Maximized;
+            childForm.Text = "Pencere " + childFormNumber++;
+            childForm.Show();
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmGuncelle childForm = new frmGuncelle();
+            childForm.MdiParent = this;
+            childForm.WindowState = FormWindowState.Maximized;
+            childForm.Text = "Pencere " + childFormNumber++;
+            childForm.Show();
+        }
+
+        private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmSil childForm = new frmSil();
+            childForm.MdiParent = this;
+            childForm.WindowState = FormWindowState.Maximized;
+            childForm.Text = "Pencere " + childFormNumber++;
+            childForm.Show();
+        }
     }
 }
