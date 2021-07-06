@@ -81,6 +81,20 @@
     <Property Name="FIRMANO" Type="int" />
     <Property Name="MARKAADI" Type="nvarchar" MaxLength="50" />
   </EntityType>
+  <EntityType Name="tbl_personel">
+    <Key>
+      <PropertyRef Name="IND" />
+    </Key>
+    <Property Name="IND" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PERSONELAD" Type="nvarchar" MaxLength="50" />
+    <Property Name="PERSONELSOYAD" Type="nvarchar" MaxLength="50" />
+    <Property Name="PERSONELMAİL" Type="nvarchar" MaxLength="45" />
+    <Property Name="PERSONELTC" Type="nvarchar" MaxLength="11" />
+    <Property Name="PERSONELTEL" Type="nvarchar" MaxLength="15" />
+    <Property Name="PERSONELADRES" Type="nvarchar" MaxLength="250" />
+    <Property Name="PERSONELYORUM" Type="int" />
+    <Property Name="FirmaNo" Type="int" />
+  </EntityType>
   <EntityType Name="tbl_sektor">
     <Key>
       <PropertyRef Name="IND" />
@@ -122,6 +136,14 @@
     <Property Name="KOD3" Type="nvarchar" MaxLength="50" />
     <Property Name="KOD4" Type="nvarchar" MaxLength="50" />
     <Property Name="KOD5" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbl_yorum">
+    <Key>
+      <PropertyRef Name="IND" />
+    </Key>
+    <Property Name="IND" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="YORUM" Type="varchar" MaxLength="250" />
+    <Property Name="PersonelNo" Type="int" />
   </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'stajyer.dbo.ViewCari' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -232,7 +254,7 @@ warning 6002: The table/view 'stajyer.dbo.ViewCari' does not have a primary key 
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_tbl_cari_tbl_sektor">
+  <Association Name="FK_tbl_cari_tbl_sektor1">
     <End Role="tbl_sektor" Type="Self.tbl_sektor" Multiplicity="0..1" />
     <End Role="tbl_cari" Type="Self.tbl_cari" Multiplicity="*" />
     <ReferentialConstraint>
@@ -280,6 +302,30 @@ warning 6002: The table/view 'stajyer.dbo.ViewCari' does not have a primary key 
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_tbl_personel_tbl_cari">
+    <End Role="tbl_cari" Type="Self.tbl_cari" Multiplicity="0..1" />
+    <End Role="tbl_personel" Type="Self.tbl_personel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_cari">
+        <PropertyRef Name="IND" />
+      </Principal>
+      <Dependent Role="tbl_personel">
+        <PropertyRef Name="FirmaNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_yorum_tbl_personel">
+    <End Role="tbl_personel" Type="Self.tbl_personel" Multiplicity="0..1" />
+    <End Role="tbl_yorum" Type="Self.tbl_yorum" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_personel">
+        <PropertyRef Name="IND" />
+      </Principal>
+      <Dependent Role="tbl_yorum">
+        <PropertyRef Name="PersonelNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
   <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
@@ -318,10 +364,12 @@ warning 6002: The table/view 'stajyer.dbo.ViewCari' does not have a primary key 
     <EntitySet Name="tbl_firmaTipi" EntityType="Self.tbl_firmaTipi" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbl_hizmetturu" EntityType="Self.tbl_hizmetturu" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbl_marka" EntityType="Self.tbl_marka" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_personel" EntityType="Self.tbl_personel" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbl_sektor" EntityType="Self.tbl_sektor" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbl_status" EntityType="Self.tbl_status" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbl_user" EntityType="Self.tbl_user" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbl_Yetkili" EntityType="Self.tbl_Yetkili" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_yorum" EntityType="Self.tbl_yorum" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ViewCari" EntityType="Self.ViewCari" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 
     [ViewCari].[Expr3] AS [Expr3], 
@@ -397,7 +445,7 @@ warning 6002: The table/view 'stajyer.dbo.ViewCari' does not have a primary key 
       <End Role="tbl_hizmetturu" EntitySet="tbl_hizmetturu" />
       <End Role="tbl_cari" EntitySet="tbl_cari" />
     </AssociationSet>
-    <AssociationSet Name="FK_tbl_cari_tbl_sektor" Association="Self.FK_tbl_cari_tbl_sektor">
+    <AssociationSet Name="FK_tbl_cari_tbl_sektor1" Association="Self.FK_tbl_cari_tbl_sektor1">
       <End Role="tbl_sektor" EntitySet="tbl_sektor" />
       <End Role="tbl_cari" EntitySet="tbl_cari" />
     </AssociationSet>
@@ -412,6 +460,14 @@ warning 6002: The table/view 'stajyer.dbo.ViewCari' does not have a primary key 
     <AssociationSet Name="FK_tbl_marka_tbl_cari" Association="Self.FK_tbl_marka_tbl_cari">
       <End Role="tbl_cari" EntitySet="tbl_cari" />
       <End Role="tbl_marka" EntitySet="tbl_marka" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_personel_tbl_cari" Association="Self.FK_tbl_personel_tbl_cari">
+      <End Role="tbl_cari" EntitySet="tbl_cari" />
+      <End Role="tbl_personel" EntitySet="tbl_personel" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_yorum_tbl_personel" Association="Self.FK_tbl_yorum_tbl_personel">
+      <End Role="tbl_personel" EntitySet="tbl_personel" />
+      <End Role="tbl_yorum" EntitySet="tbl_yorum" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

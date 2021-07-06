@@ -70,6 +70,16 @@
       <End Role="tbl_cari" EntitySet="tbl_cari" />
       <End Role="tbl_marka" EntitySet="tbl_marka" />
     </AssociationSet>
+    <EntitySet Name="tbl_personel" EntityType="stajyerModel.tbl_personel" />
+    <EntitySet Name="tbl_yorum" EntityType="stajyerModel.tbl_yorum" />
+    <AssociationSet Name="FK_tbl_personel_tbl_cari" Association="stajyerModel.FK_tbl_personel_tbl_cari">
+      <End Role="tbl_cari" EntitySet="tbl_cari" />
+      <End Role="tbl_personel" EntitySet="tbl_personel" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_yorum_tbl_personel" Association="stajyerModel.FK_tbl_yorum_tbl_personel">
+      <End Role="tbl_personel" EntitySet="tbl_personel" />
+      <End Role="tbl_yorum" EntitySet="tbl_yorum" />
+    </AssociationSet>
   </EntityContainer>
   <ComplexType Name="sp_helpdiagramdefinition_Result">
     <Property Type="Int32" Name="version" Nullable="true" />
@@ -146,6 +156,7 @@
     <NavigationProperty Name="tbl_status" Relationship="stajyerModel.FK_tbl_cari_tbl_status" FromRole="tbl_cari" ToRole="tbl_status" />
     <NavigationProperty Name="tbl_Yetkili" Relationship="stajyerModel.FK_tbl_cari_tbl_Yetkili" FromRole="tbl_cari" ToRole="tbl_Yetkili" />
     <NavigationProperty Name="tbl_marka" Relationship="stajyerModel.FK_tbl_marka_tbl_cari" FromRole="tbl_cari" ToRole="tbl_marka" />
+    <NavigationProperty Name="tbl_personel" Relationship="stajyerModel.FK_tbl_personel_tbl_cari" FromRole="tbl_cari" ToRole="tbl_personel" />
   </EntityType>
   <EntityType Name="tbl_firmaTipi">
     <Key>
@@ -371,6 +382,55 @@
       </Principal>
       <Dependent Role="tbl_marka">
         <PropertyRef Name="FIRMANO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="tbl_personel">
+    <Key>
+      <PropertyRef Name="IND" />
+    </Key>
+    <Property Name="IND" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PERSONELAD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PERSONELSOYAD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PERSONELMAİL" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+    <Property Name="PERSONELTC" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="PERSONELTEL" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="PERSONELADRES" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="PERSONELYORUM" Type="Int32" />
+    <Property Name="FirmaNo" Type="Int32" />
+    <NavigationProperty Name="tbl_cari" Relationship="stajyerModel.FK_tbl_personel_tbl_cari" FromRole="tbl_personel" ToRole="tbl_cari" />
+    <NavigationProperty Name="tbl_yorum" Relationship="stajyerModel.FK_tbl_yorum_tbl_personel" FromRole="tbl_personel" ToRole="tbl_yorum" />
+  </EntityType>
+  <EntityType Name="tbl_yorum">
+    <Key>
+      <PropertyRef Name="IND" />
+    </Key>
+    <Property Name="IND" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="YORUM" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="PersonelNo" Type="Int32" />
+    <NavigationProperty Name="tbl_personel" Relationship="stajyerModel.FK_tbl_yorum_tbl_personel" FromRole="tbl_yorum" ToRole="tbl_personel" />
+  </EntityType>
+  <Association Name="FK_tbl_personel_tbl_cari">
+    <End Type="stajyerModel.tbl_cari" Role="tbl_cari" Multiplicity="0..1" />
+    <End Type="stajyerModel.tbl_personel" Role="tbl_personel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_cari">
+        <PropertyRef Name="IND" />
+      </Principal>
+      <Dependent Role="tbl_personel">
+        <PropertyRef Name="FirmaNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_yorum_tbl_personel">
+    <End Type="stajyerModel.tbl_personel" Role="tbl_personel" Multiplicity="0..1" />
+    <End Type="stajyerModel.tbl_yorum" Role="tbl_yorum" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_personel">
+        <PropertyRef Name="IND" />
+      </Principal>
+      <Dependent Role="tbl_yorum">
+        <PropertyRef Name="PersonelNo" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

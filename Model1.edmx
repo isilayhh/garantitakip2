@@ -86,6 +86,20 @@
           <Property Name="FIRMANO" Type="int" />
           <Property Name="MARKAADI" Type="nvarchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="tbl_personel">
+          <Key>
+            <PropertyRef Name="IND" />
+          </Key>
+          <Property Name="IND" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PERSONELAD" Type="nvarchar" MaxLength="50" />
+          <Property Name="PERSONELSOYAD" Type="nvarchar" MaxLength="50" />
+          <Property Name="PERSONELMAİL" Type="nvarchar" MaxLength="45" />
+          <Property Name="PERSONELTC" Type="nvarchar" MaxLength="11" />
+          <Property Name="PERSONELTEL" Type="nvarchar" MaxLength="15" />
+          <Property Name="PERSONELADRES" Type="nvarchar" MaxLength="250" />
+          <Property Name="PERSONELYORUM" Type="int" />
+          <Property Name="FirmaNo" Type="int" />
+        </EntityType>
         <EntityType Name="tbl_sektor">
           <Key>
             <PropertyRef Name="IND" />
@@ -127,6 +141,14 @@
           <Property Name="KOD3" Type="nvarchar" MaxLength="50" />
           <Property Name="KOD4" Type="nvarchar" MaxLength="50" />
           <Property Name="KOD5" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbl_yorum">
+          <Key>
+            <PropertyRef Name="IND" />
+          </Key>
+          <Property Name="IND" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="YORUM" Type="varchar" MaxLength="250" />
+          <Property Name="PersonelNo" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'stajyer.dbo.ViewCari' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -237,7 +259,7 @@ warning 6002: The table/view 'stajyer.dbo.ViewCari' does not have a primary key 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_tbl_cari_tbl_sektor">
+        <Association Name="FK_tbl_cari_tbl_sektor1">
           <End Role="tbl_sektor" Type="Self.tbl_sektor" Multiplicity="0..1" />
           <End Role="tbl_cari" Type="Self.tbl_cari" Multiplicity="*" />
           <ReferentialConstraint>
@@ -285,6 +307,30 @@ warning 6002: The table/view 'stajyer.dbo.ViewCari' does not have a primary key 
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_tbl_personel_tbl_cari">
+          <End Role="tbl_cari" Type="Self.tbl_cari" Multiplicity="0..1" />
+          <End Role="tbl_personel" Type="Self.tbl_personel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_cari">
+              <PropertyRef Name="IND" />
+            </Principal>
+            <Dependent Role="tbl_personel">
+              <PropertyRef Name="FirmaNo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_yorum_tbl_personel">
+          <End Role="tbl_personel" Type="Self.tbl_personel" Multiplicity="0..1" />
+          <End Role="tbl_yorum" Type="Self.tbl_yorum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_personel">
+              <PropertyRef Name="IND" />
+            </Principal>
+            <Dependent Role="tbl_yorum">
+              <PropertyRef Name="PersonelNo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
         <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
@@ -323,10 +369,12 @@ warning 6002: The table/view 'stajyer.dbo.ViewCari' does not have a primary key 
           <EntitySet Name="tbl_firmaTipi" EntityType="Self.tbl_firmaTipi" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_hizmetturu" EntityType="Self.tbl_hizmetturu" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_marka" EntityType="Self.tbl_marka" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_personel" EntityType="Self.tbl_personel" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_sektor" EntityType="Self.tbl_sektor" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_status" EntityType="Self.tbl_status" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_user" EntityType="Self.tbl_user" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_Yetkili" EntityType="Self.tbl_Yetkili" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_yorum" EntityType="Self.tbl_yorum" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ViewCari" EntityType="Self.ViewCari" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [ViewCari].[Expr3] AS [Expr3], 
@@ -402,7 +450,7 @@ warning 6002: The table/view 'stajyer.dbo.ViewCari' does not have a primary key 
             <End Role="tbl_hizmetturu" EntitySet="tbl_hizmetturu" />
             <End Role="tbl_cari" EntitySet="tbl_cari" />
           </AssociationSet>
-          <AssociationSet Name="FK_tbl_cari_tbl_sektor" Association="Self.FK_tbl_cari_tbl_sektor">
+          <AssociationSet Name="FK_tbl_cari_tbl_sektor1" Association="Self.FK_tbl_cari_tbl_sektor1">
             <End Role="tbl_sektor" EntitySet="tbl_sektor" />
             <End Role="tbl_cari" EntitySet="tbl_cari" />
           </AssociationSet>
@@ -417,6 +465,14 @@ warning 6002: The table/view 'stajyer.dbo.ViewCari' does not have a primary key 
           <AssociationSet Name="FK_tbl_marka_tbl_cari" Association="Self.FK_tbl_marka_tbl_cari">
             <End Role="tbl_cari" EntitySet="tbl_cari" />
             <End Role="tbl_marka" EntitySet="tbl_marka" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_personel_tbl_cari" Association="Self.FK_tbl_personel_tbl_cari">
+            <End Role="tbl_cari" EntitySet="tbl_cari" />
+            <End Role="tbl_personel" EntitySet="tbl_personel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_yorum_tbl_personel" Association="Self.FK_tbl_yorum_tbl_personel">
+            <End Role="tbl_personel" EntitySet="tbl_personel" />
+            <End Role="tbl_yorum" EntitySet="tbl_yorum" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -492,6 +548,16 @@ warning 6002: The table/view 'stajyer.dbo.ViewCari' does not have a primary key 
           <AssociationSet Name="FK_tbl_marka_tbl_cari" Association="stajyerModel.FK_tbl_marka_tbl_cari">
             <End Role="tbl_cari" EntitySet="tbl_cari" />
             <End Role="tbl_marka" EntitySet="tbl_marka" />
+          </AssociationSet>
+          <EntitySet Name="tbl_personel" EntityType="stajyerModel.tbl_personel" />
+          <EntitySet Name="tbl_yorum" EntityType="stajyerModel.tbl_yorum" />
+          <AssociationSet Name="FK_tbl_personel_tbl_cari" Association="stajyerModel.FK_tbl_personel_tbl_cari">
+            <End Role="tbl_cari" EntitySet="tbl_cari" />
+            <End Role="tbl_personel" EntitySet="tbl_personel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_yorum_tbl_personel" Association="stajyerModel.FK_tbl_yorum_tbl_personel">
+            <End Role="tbl_personel" EntitySet="tbl_personel" />
+            <End Role="tbl_yorum" EntitySet="tbl_yorum" />
           </AssociationSet>
           </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
@@ -569,6 +635,7 @@ warning 6002: The table/view 'stajyer.dbo.ViewCari' does not have a primary key 
           <NavigationProperty Name="tbl_status" Relationship="stajyerModel.FK_tbl_cari_tbl_status" FromRole="tbl_cari" ToRole="tbl_status" />
           <NavigationProperty Name="tbl_Yetkili" Relationship="stajyerModel.FK_tbl_cari_tbl_Yetkili" FromRole="tbl_cari" ToRole="tbl_Yetkili" />
           <NavigationProperty Name="tbl_marka" Relationship="stajyerModel.FK_tbl_marka_tbl_cari" FromRole="tbl_cari" ToRole="tbl_marka" />
+          <NavigationProperty Name="tbl_personel" Relationship="stajyerModel.FK_tbl_personel_tbl_cari" FromRole="tbl_cari" ToRole="tbl_personel" />
         </EntityType>
         <EntityType Name="tbl_firmaTipi">
           <Key>
@@ -797,6 +864,55 @@ warning 6002: The table/view 'stajyer.dbo.ViewCari' does not have a primary key 
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="tbl_personel">
+          <Key>
+            <PropertyRef Name="IND" />
+          </Key>
+          <Property Name="IND" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PERSONELAD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PERSONELSOYAD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PERSONELMAİL" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+          <Property Name="PERSONELTC" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+          <Property Name="PERSONELTEL" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="PERSONELADRES" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="PERSONELYORUM" Type="Int32" />
+          <Property Name="FirmaNo" Type="Int32" />
+          <NavigationProperty Name="tbl_cari" Relationship="stajyerModel.FK_tbl_personel_tbl_cari" FromRole="tbl_personel" ToRole="tbl_cari" />
+          <NavigationProperty Name="tbl_yorum" Relationship="stajyerModel.FK_tbl_yorum_tbl_personel" FromRole="tbl_personel" ToRole="tbl_yorum" />
+        </EntityType>
+        <EntityType Name="tbl_yorum">
+          <Key>
+            <PropertyRef Name="IND" />
+          </Key>
+          <Property Name="IND" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="YORUM" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="PersonelNo" Type="Int32" />
+          <NavigationProperty Name="tbl_personel" Relationship="stajyerModel.FK_tbl_yorum_tbl_personel" FromRole="tbl_yorum" ToRole="tbl_personel" />
+        </EntityType>
+        <Association Name="FK_tbl_personel_tbl_cari">
+          <End Type="stajyerModel.tbl_cari" Role="tbl_cari" Multiplicity="0..1" />
+          <End Type="stajyerModel.tbl_personel" Role="tbl_personel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_cari">
+              <PropertyRef Name="IND" />
+            </Principal>
+            <Dependent Role="tbl_personel">
+              <PropertyRef Name="FirmaNo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_yorum_tbl_personel">
+          <End Type="stajyerModel.tbl_personel" Role="tbl_personel" Multiplicity="0..1" />
+          <End Type="stajyerModel.tbl_yorum" Role="tbl_yorum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_personel">
+              <PropertyRef Name="IND" />
+            </Principal>
+            <Dependent Role="tbl_yorum">
+              <PropertyRef Name="PersonelNo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1022,6 +1138,30 @@ warning 6002: The table/view 'stajyer.dbo.ViewCari' does not have a primary key 
                 <ScalarProperty Name="Expr4" ColumnName="Expr4" />
                 <ScalarProperty Name="AD" ColumnName="AD" />
                 <ScalarProperty Name="Expr3" ColumnName="Expr3" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_personel">
+            <EntityTypeMapping TypeName="stajyerModel.tbl_personel">
+              <MappingFragment StoreEntitySet="tbl_personel">
+                <ScalarProperty Name="FirmaNo" ColumnName="FirmaNo" />
+                <ScalarProperty Name="PERSONELYORUM" ColumnName="PERSONELYORUM" />
+                <ScalarProperty Name="PERSONELADRES" ColumnName="PERSONELADRES" />
+                <ScalarProperty Name="PERSONELTEL" ColumnName="PERSONELTEL" />
+                <ScalarProperty Name="PERSONELTC" ColumnName="PERSONELTC" />
+                <ScalarProperty Name="PERSONELMAİL" ColumnName="PERSONELMAİL" />
+                <ScalarProperty Name="PERSONELSOYAD" ColumnName="PERSONELSOYAD" />
+                <ScalarProperty Name="PERSONELAD" ColumnName="PERSONELAD" />
+                <ScalarProperty Name="IND" ColumnName="IND" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_yorum">
+            <EntityTypeMapping TypeName="stajyerModel.tbl_yorum">
+              <MappingFragment StoreEntitySet="tbl_yorum">
+                <ScalarProperty Name="PersonelNo" ColumnName="PersonelNo" />
+                <ScalarProperty Name="YORUM" ColumnName="YORUM" />
+                <ScalarProperty Name="IND" ColumnName="IND" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

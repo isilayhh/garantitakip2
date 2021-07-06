@@ -23,6 +23,10 @@
         <AssociationConnector Association="stajyerModel.FK_tbl_cari_tbl_status" />
         <AssociationConnector Association="stajyerModel.FK_tbl_cari_tbl_Yetkili" />
         <AssociationConnector Association="stajyerModel.FK_tbl_marka_tbl_cari" />
+        <EntityTypeShape EntityType="stajyerModel.tbl_personel" Width="1.5" PointX="5.25" PointY="17.125" />
+        <EntityTypeShape EntityType="stajyerModel.tbl_yorum" Width="1.5" PointX="8" PointY="17.5" />
+        <AssociationConnector Association="stajyerModel.FK_tbl_personel_tbl_cari" />
+        <AssociationConnector Association="stajyerModel.FK_tbl_yorum_tbl_personel" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
