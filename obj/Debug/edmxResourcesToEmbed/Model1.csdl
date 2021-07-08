@@ -18,53 +18,7 @@
     <Property Name="FIRMANO" Type="Int32" />
     <Property Name="BASLANGICTARİH" Type="DateTime" Precision="0" />
     <Property Name="BİTİSTARİH" Type="DateTime" Precision="0" />
-    <NavigationProperty Name="tbl_cari" Relationship="Self.FK_tbl_cari_tbl_baslangicBitisTarih" FromRole="tbl_baslangicBitisTarih" ToRole="tbl_cari" />
-  </EntityType>
-  <EntityType Name="tbl_cari">
-    <Key>
-      <PropertyRef Name="IND" />
-    </Key>
-    <Property Name="IND" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="FIRMAKODU" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="FIRMAADI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="YETKILI" Type="Int32" />
-    <Property Name="VERGIDAIRESI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="VERGINO" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
-    <Property Name="KAYITTARIHI" Type="DateTime" Precision="0" />
-    <Property Name="ISKONTO" Type="Decimal" Precision="28" Scale="8" />
-    <Property Name="FIRMATIPI" Type="Int32" />
-    <Property Name="KOD1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="KOD2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="KOD3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="KOD4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="KOD5" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="ADI" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
-    <Property Name="SOYAD" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
-    <Property Name="UNVAN" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-    <Property Name="SEKTOR" Type="Int32" />
-    <Property Name="MARKA" Type="Int32" />
-    <Property Name="EMAIL" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="URL" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-    <Property Name="TELEFON1" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-    <Property Name="TELEFON2" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-    <Property Name="ADRESFATURA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="ADRESSEVK" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="PARABIRIMI" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
-    <Property Name="IL" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
-    <Property Name="SEHIR" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
-    <Property Name="PERSONELNO" Type="Int32" />
-    <Property Name="STATUS" Type="Int32" />
-    <Property Name="YETKİLİDGMTARİH" Type="DateTime" Precision="0" />
-    <Property Name="HIZMETTURU" Type="Int32" />
-    <Property Name="BASBITTAR" Type="Int32" />
-    <NavigationProperty Name="tbl_baslangicBitisTarih" Relationship="Self.FK_tbl_cari_tbl_baslangicBitisTarih" FromRole="tbl_cari" ToRole="tbl_baslangicBitisTarih" />
-    <NavigationProperty Name="tbl_firmaTipi" Relationship="Self.FK_tbl_cari_tbl_firmaTipi" FromRole="tbl_cari" ToRole="tbl_firmaTipi" />
-    <NavigationProperty Name="tbl_hizmetturu" Relationship="Self.FK_tbl_cari_tbl_hizmetturu" FromRole="tbl_cari" ToRole="tbl_hizmetturu" />
-    <NavigationProperty Name="tbl_sektor" Relationship="Self.FK_tbl_cari_tbl_sektor1" FromRole="tbl_cari" ToRole="tbl_sektor" />
-    <NavigationProperty Name="tbl_status" Relationship="Self.FK_tbl_cari_tbl_status" FromRole="tbl_cari" ToRole="tbl_status" />
-    <NavigationProperty Name="tbl_Yetkili" Relationship="Self.FK_tbl_cari_tbl_Yetkili" FromRole="tbl_cari" ToRole="tbl_Yetkili" />
-    <NavigationProperty Name="tbl_marka" Relationship="Self.FK_tbl_marka_tbl_cari" FromRole="tbl_cari" ToRole="tbl_marka" />
-    <NavigationProperty Name="tbl_personel" Relationship="stajyerModel.FK_tbl_cari_tbl_personel" FromRole="tbl_cari" ToRole="tbl_personel" />
+    <NavigationProperty Name="tbl_cari" Relationship="stajyerModel.FK_tbl_cari_tbl_baslangicBitisTarih" FromRole="tbl_baslangicBitisTarih" ToRole="tbl_cari" />
   </EntityType>
   <EntityType Name="tbl_firmaTipi">
     <Key>
@@ -73,7 +27,7 @@
     <Property Name="IND" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="FIRMANO" Type="Int32" />
     <Property Name="FIRMATİPİ" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="tbl_cari" Relationship="Self.FK_tbl_cari_tbl_firmaTipi" FromRole="tbl_firmaTipi" ToRole="tbl_cari" />
+    <NavigationProperty Name="tbl_cari" Relationship="stajyerModel.FK_tbl_cari_tbl_firmaTipi" FromRole="tbl_firmaTipi" ToRole="tbl_cari" />
   </EntityType>
   <EntityType Name="tbl_hizmetturu">
     <Key>
@@ -82,7 +36,7 @@
     <Property Name="IND" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="FIRMANO" Type="Int32" />
     <Property Name="HIZMETTURU" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="tbl_cari" Relationship="Self.FK_tbl_cari_tbl_hizmetturu" FromRole="tbl_hizmetturu" ToRole="tbl_cari" />
+    <NavigationProperty Name="tbl_cari" Relationship="stajyerModel.FK_tbl_cari_tbl_hizmetturu" FromRole="tbl_hizmetturu" ToRole="tbl_cari" />
   </EntityType>
   <EntityType Name="tbl_marka">
     <Key>
@@ -91,7 +45,7 @@
     <Property Name="IND" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="FIRMANO" Type="Int32" />
     <Property Name="MARKAADI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="tbl_cari" Relationship="Self.FK_tbl_marka_tbl_cari" FromRole="tbl_marka" ToRole="tbl_cari" />
+    <NavigationProperty Name="tbl_cari" Relationship="stajyerModel.FK_tbl_marka_tbl_cari" FromRole="tbl_marka" ToRole="tbl_cari" />
   </EntityType>
   <EntityType Name="tbl_sektor">
     <Key>
@@ -100,7 +54,7 @@
     <Property Name="IND" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="FIRMANO" Type="Int32" />
     <Property Name="SEKTORADI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="tbl_cari" Relationship="Self.FK_tbl_cari_tbl_sektor1" FromRole="tbl_sektor" ToRole="tbl_cari" />
+    <NavigationProperty Name="tbl_cari" Relationship="stajyerModel.FK_tbl_cari_tbl_sektor1" FromRole="tbl_sektor" ToRole="tbl_cari" />
   </EntityType>
   <EntityType Name="tbl_status">
     <Key>
@@ -108,7 +62,7 @@
     </Key>
     <Property Name="IND" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="STATUS" Type="Boolean" />
-    <NavigationProperty Name="tbl_cari" Relationship="Self.FK_tbl_cari_tbl_status" FromRole="tbl_status" ToRole="tbl_cari" />
+    <NavigationProperty Name="tbl_cari" Relationship="stajyerModel.FK_tbl_cari_tbl_status" FromRole="tbl_status" ToRole="tbl_cari" />
   </EntityType>
   <EntityType Name="tbl_user">
     <Key>
@@ -136,16 +90,7 @@
     <Property Name="KOD3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="KOD4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="KOD5" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="tbl_cari" Relationship="Self.FK_tbl_cari_tbl_Yetkili" FromRole="tbl_Yetkili" ToRole="tbl_cari" />
-  </EntityType>
-  <EntityType Name="tbl_yorum">
-    <Key>
-      <PropertyRef Name="IND" />
-    </Key>
-    <Property Name="IND" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="YORUM" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-    <Property Name="PersonelNo" Type="Int32" />
-    <NavigationProperty Name="tbl_personel" Relationship="stajyerModel.FK_tbl_personel_tbl_yorum" FromRole="tbl_yorum" ToRole="tbl_personel" />
+    <NavigationProperty Name="tbl_cari" Relationship="stajyerModel.FK_tbl_cari_tbl_Yetkili" FromRole="tbl_Yetkili" ToRole="tbl_cari" />
   </EntityType>
   <EntityType Name="ViewCari">
     <Key>
@@ -218,94 +163,9 @@
     <Property Name="HIZMETTURU" Type="Int32" />
     <Property Name="BASBITTAR" Type="Int32" />
   </EntityType>
-  <Association Name="FK_tbl_cari_tbl_baslangicBitisTarih">
-    <End Role="tbl_baslangicBitisTarih" Type="Self.tbl_baslangicBitisTarih" Multiplicity="0..1" />
-    <End Role="tbl_cari" Type="Self.tbl_cari" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="tbl_baslangicBitisTarih">
-        <PropertyRef Name="IND" />
-      </Principal>
-      <Dependent Role="tbl_cari">
-        <PropertyRef Name="BASBITTAR" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_tbl_cari_tbl_firmaTipi">
-    <End Role="tbl_firmaTipi" Type="Self.tbl_firmaTipi" Multiplicity="0..1" />
-    <End Role="tbl_cari" Type="Self.tbl_cari" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="tbl_firmaTipi">
-        <PropertyRef Name="IND" />
-      </Principal>
-      <Dependent Role="tbl_cari">
-        <PropertyRef Name="FIRMATIPI" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_tbl_cari_tbl_hizmetturu">
-    <End Role="tbl_hizmetturu" Type="Self.tbl_hizmetturu" Multiplicity="0..1" />
-    <End Role="tbl_cari" Type="Self.tbl_cari" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="tbl_hizmetturu">
-        <PropertyRef Name="IND" />
-      </Principal>
-      <Dependent Role="tbl_cari">
-        <PropertyRef Name="HIZMETTURU" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_tbl_cari_tbl_sektor1">
-    <End Role="tbl_sektor" Type="Self.tbl_sektor" Multiplicity="0..1" />
-    <End Role="tbl_cari" Type="Self.tbl_cari" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="tbl_sektor">
-        <PropertyRef Name="IND" />
-      </Principal>
-      <Dependent Role="tbl_cari">
-        <PropertyRef Name="SEKTOR" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_tbl_cari_tbl_status">
-    <End Role="tbl_status" Type="Self.tbl_status" Multiplicity="0..1" />
-    <End Role="tbl_cari" Type="Self.tbl_cari" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="tbl_status">
-        <PropertyRef Name="IND" />
-      </Principal>
-      <Dependent Role="tbl_cari">
-        <PropertyRef Name="STATUS" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_tbl_cari_tbl_Yetkili">
-    <End Role="tbl_Yetkili" Type="Self.tbl_Yetkili" Multiplicity="0..1" />
-    <End Role="tbl_cari" Type="Self.tbl_cari" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="tbl_Yetkili">
-        <PropertyRef Name="IND" />
-      </Principal>
-      <Dependent Role="tbl_cari">
-        <PropertyRef Name="YETKILI" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_tbl_marka_tbl_cari">
-    <End Role="tbl_cari" Type="Self.tbl_cari" Multiplicity="0..1" />
-    <End Role="tbl_marka" Type="Self.tbl_marka" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="tbl_cari">
-        <PropertyRef Name="IND" />
-      </Principal>
-      <Dependent Role="tbl_marka">
-        <PropertyRef Name="FIRMANO" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <EntityContainer Name="stajyerEntities3" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
     <EntitySet Name="tbl_baslangicBitisTarih" EntityType="Self.tbl_baslangicBitisTarih" />
-    <EntitySet Name="tbl_cari" EntityType="Self.tbl_cari" />
     <EntitySet Name="tbl_firmaTipi" EntityType="Self.tbl_firmaTipi" />
     <EntitySet Name="tbl_hizmetturu" EntityType="Self.tbl_hizmetturu" />
     <EntitySet Name="tbl_marka" EntityType="Self.tbl_marka" />
@@ -313,36 +173,7 @@
     <EntitySet Name="tbl_status" EntityType="Self.tbl_status" />
     <EntitySet Name="tbl_user" EntityType="Self.tbl_user" />
     <EntitySet Name="tbl_Yetkili" EntityType="Self.tbl_Yetkili" />
-    <EntitySet Name="tbl_yorum" EntityType="Self.tbl_yorum" />
     <EntitySet Name="ViewCari" EntityType="Self.ViewCari" />
-    <AssociationSet Name="FK_tbl_cari_tbl_baslangicBitisTarih" Association="Self.FK_tbl_cari_tbl_baslangicBitisTarih">
-      <End Role="tbl_baslangicBitisTarih" EntitySet="tbl_baslangicBitisTarih" />
-      <End Role="tbl_cari" EntitySet="tbl_cari" />
-    </AssociationSet>
-    <AssociationSet Name="FK_tbl_cari_tbl_firmaTipi" Association="Self.FK_tbl_cari_tbl_firmaTipi">
-      <End Role="tbl_firmaTipi" EntitySet="tbl_firmaTipi" />
-      <End Role="tbl_cari" EntitySet="tbl_cari" />
-    </AssociationSet>
-    <AssociationSet Name="FK_tbl_cari_tbl_hizmetturu" Association="Self.FK_tbl_cari_tbl_hizmetturu">
-      <End Role="tbl_hizmetturu" EntitySet="tbl_hizmetturu" />
-      <End Role="tbl_cari" EntitySet="tbl_cari" />
-    </AssociationSet>
-    <AssociationSet Name="FK_tbl_cari_tbl_sektor1" Association="Self.FK_tbl_cari_tbl_sektor1">
-      <End Role="tbl_sektor" EntitySet="tbl_sektor" />
-      <End Role="tbl_cari" EntitySet="tbl_cari" />
-    </AssociationSet>
-    <AssociationSet Name="FK_tbl_cari_tbl_status" Association="Self.FK_tbl_cari_tbl_status">
-      <End Role="tbl_status" EntitySet="tbl_status" />
-      <End Role="tbl_cari" EntitySet="tbl_cari" />
-    </AssociationSet>
-    <AssociationSet Name="FK_tbl_cari_tbl_Yetkili" Association="Self.FK_tbl_cari_tbl_Yetkili">
-      <End Role="tbl_Yetkili" EntitySet="tbl_Yetkili" />
-      <End Role="tbl_cari" EntitySet="tbl_cari" />
-    </AssociationSet>
-    <AssociationSet Name="FK_tbl_marka_tbl_cari" Association="Self.FK_tbl_marka_tbl_cari">
-      <End Role="tbl_cari" EntitySet="tbl_cari" />
-      <End Role="tbl_marka" EntitySet="tbl_marka" />
-    </AssociationSet>
     <FunctionImport Name="sp_alterdiagram">
       <Parameter Name="diagramname" Mode="In" Type="String" />
       <Parameter Name="owner_id" Mode="In" Type="Int32" />
@@ -373,14 +204,44 @@
       <Parameter Name="new_diagramname" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="sp_upgraddiagrams" />
+    <EntitySet Name="tbl_cari" EntityType="stajyerModel.tbl_cari" />
     <EntitySet Name="tbl_personel" EntityType="stajyerModel.tbl_personel" />
+    <EntitySet Name="tbl_yorum" EntityType="stajyerModel.tbl_yorum" />
+    <AssociationSet Name="FK_tbl_cari_tbl_baslangicBitisTarih" Association="stajyerModel.FK_tbl_cari_tbl_baslangicBitisTarih">
+      <End Role="tbl_baslangicBitisTarih" EntitySet="tbl_baslangicBitisTarih" />
+      <End Role="tbl_cari" EntitySet="tbl_cari" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_cari_tbl_firmaTipi" Association="stajyerModel.FK_tbl_cari_tbl_firmaTipi">
+      <End Role="tbl_firmaTipi" EntitySet="tbl_firmaTipi" />
+      <End Role="tbl_cari" EntitySet="tbl_cari" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_cari_tbl_hizmetturu" Association="stajyerModel.FK_tbl_cari_tbl_hizmetturu">
+      <End Role="tbl_hizmetturu" EntitySet="tbl_hizmetturu" />
+      <End Role="tbl_cari" EntitySet="tbl_cari" />
+    </AssociationSet>
     <AssociationSet Name="FK_tbl_cari_tbl_personel" Association="stajyerModel.FK_tbl_cari_tbl_personel">
       <End Role="tbl_personel" EntitySet="tbl_personel" />
       <End Role="tbl_cari" EntitySet="tbl_cari" />
     </AssociationSet>
-    <AssociationSet Name="FK_tbl_personel_tbl_yorum" Association="stajyerModel.FK_tbl_personel_tbl_yorum">
+    <AssociationSet Name="FK_tbl_cari_tbl_sektor1" Association="stajyerModel.FK_tbl_cari_tbl_sektor1">
+      <End Role="tbl_sektor" EntitySet="tbl_sektor" />
+      <End Role="tbl_cari" EntitySet="tbl_cari" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_cari_tbl_status" Association="stajyerModel.FK_tbl_cari_tbl_status">
+      <End Role="tbl_status" EntitySet="tbl_status" />
+      <End Role="tbl_cari" EntitySet="tbl_cari" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_cari_tbl_Yetkili" Association="stajyerModel.FK_tbl_cari_tbl_Yetkili">
+      <End Role="tbl_Yetkili" EntitySet="tbl_Yetkili" />
+      <End Role="tbl_cari" EntitySet="tbl_cari" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_cari_tbl_yorum" Association="stajyerModel.FK_tbl_cari_tbl_yorum">
       <End Role="tbl_yorum" EntitySet="tbl_yorum" />
-      <End Role="tbl_personel" EntitySet="tbl_personel" />
+      <End Role="tbl_cari" EntitySet="tbl_cari" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_marka_tbl_cari" Association="stajyerModel.FK_tbl_marka_tbl_cari">
+      <End Role="tbl_cari" EntitySet="tbl_cari" />
+      <End Role="tbl_marka" EntitySet="tbl_marka" />
     </AssociationSet>
   </EntityContainer>
   <ComplexType Name="sp_helpdiagramdefinition_Result">
@@ -394,6 +255,54 @@
     <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
     <Property Type="Int32" Name="OwnerID" Nullable="false" />
   </ComplexType>
+  <EntityType Name="tbl_cari">
+    <Key>
+      <PropertyRef Name="IND" />
+    </Key>
+    <Property Name="IND" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FIRMAKODU" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FIRMAADI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="YETKILI" Type="Int32" />
+    <Property Name="VERGIDAIRESI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="VERGINO" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="KAYITTARIHI" Type="DateTime" Precision="0" />
+    <Property Name="ISKONTO" Type="Decimal" Precision="28" Scale="8" />
+    <Property Name="FIRMATIPI" Type="Int32" />
+    <Property Name="KOD1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="KOD2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="KOD3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="KOD4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="KOD5" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ADI" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="SOYAD" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="UNVAN" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SEKTOR" Type="Int32" />
+    <Property Name="MARKA" Type="Int32" />
+    <Property Name="EMAIL" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="URL" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="TELEFON1" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="TELEFON2" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="ADRESFATURA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ADRESSEVK" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PARABIRIMI" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+    <Property Name="IL" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="SEHIR" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="PERSONELNO" Type="Int32" />
+    <Property Name="STATUS" Type="Int32" />
+    <Property Name="YETKİLİDGMTARİH" Type="DateTime" Precision="0" />
+    <Property Name="HIZMETTURU" Type="Int32" />
+    <Property Name="BASBITTAR" Type="Int32" />
+    <Property Name="PersonelYorum" Type="Int32" />
+    <NavigationProperty Name="tbl_baslangicBitisTarih" Relationship="stajyerModel.FK_tbl_cari_tbl_baslangicBitisTarih" FromRole="tbl_cari" ToRole="tbl_baslangicBitisTarih" />
+    <NavigationProperty Name="tbl_firmaTipi" Relationship="stajyerModel.FK_tbl_cari_tbl_firmaTipi" FromRole="tbl_cari" ToRole="tbl_firmaTipi" />
+    <NavigationProperty Name="tbl_hizmetturu" Relationship="stajyerModel.FK_tbl_cari_tbl_hizmetturu" FromRole="tbl_cari" ToRole="tbl_hizmetturu" />
+    <NavigationProperty Name="tbl_personel" Relationship="stajyerModel.FK_tbl_cari_tbl_personel" FromRole="tbl_cari" ToRole="tbl_personel" />
+    <NavigationProperty Name="tbl_sektor" Relationship="stajyerModel.FK_tbl_cari_tbl_sektor1" FromRole="tbl_cari" ToRole="tbl_sektor" />
+    <NavigationProperty Name="tbl_status" Relationship="stajyerModel.FK_tbl_cari_tbl_status" FromRole="tbl_cari" ToRole="tbl_status" />
+    <NavigationProperty Name="tbl_Yetkili" Relationship="stajyerModel.FK_tbl_cari_tbl_Yetkili" FromRole="tbl_cari" ToRole="tbl_Yetkili" />
+    <NavigationProperty Name="tbl_yorum" Relationship="stajyerModel.FK_tbl_cari_tbl_yorum" FromRole="tbl_cari" ToRole="tbl_yorum" />
+    <NavigationProperty Name="tbl_marka" Relationship="stajyerModel.FK_tbl_marka_tbl_cari" FromRole="tbl_cari" ToRole="tbl_marka" />
+  </EntityType>
   <EntityType Name="tbl_personel">
     <Key>
       <PropertyRef Name="IND" />
@@ -405,11 +314,54 @@
     <Property Name="PERSONELTC" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
     <Property Name="PERSONELTEL" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
     <Property Name="PERSONELADRES" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-    <Property Name="PERSONELYORUM" Type="Int32" />
     <Property Name="PERSONELDURUM" Type="Boolean" />
     <NavigationProperty Name="tbl_cari" Relationship="stajyerModel.FK_tbl_cari_tbl_personel" FromRole="tbl_personel" ToRole="tbl_cari" />
-    <NavigationProperty Name="tbl_yorum" Relationship="stajyerModel.FK_tbl_personel_tbl_yorum" FromRole="tbl_personel" ToRole="tbl_yorum" />
   </EntityType>
+  <EntityType Name="tbl_yorum">
+    <Key>
+      <PropertyRef Name="IND" />
+    </Key>
+    <Property Name="IND" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="YORUM" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="PersonelNo" Type="Int32" />
+    <NavigationProperty Name="tbl_cari" Relationship="stajyerModel.FK_tbl_cari_tbl_yorum" FromRole="tbl_yorum" ToRole="tbl_cari" />
+  </EntityType>
+  <Association Name="FK_tbl_cari_tbl_baslangicBitisTarih">
+    <End Type="stajyerModel.tbl_baslangicBitisTarih" Role="tbl_baslangicBitisTarih" Multiplicity="0..1" />
+    <End Type="stajyerModel.tbl_cari" Role="tbl_cari" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_baslangicBitisTarih">
+        <PropertyRef Name="IND" />
+      </Principal>
+      <Dependent Role="tbl_cari">
+        <PropertyRef Name="BASBITTAR" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_cari_tbl_firmaTipi">
+    <End Type="stajyerModel.tbl_firmaTipi" Role="tbl_firmaTipi" Multiplicity="0..1" />
+    <End Type="stajyerModel.tbl_cari" Role="tbl_cari" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_firmaTipi">
+        <PropertyRef Name="IND" />
+      </Principal>
+      <Dependent Role="tbl_cari">
+        <PropertyRef Name="FIRMATIPI" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_cari_tbl_hizmetturu">
+    <End Type="stajyerModel.tbl_hizmetturu" Role="tbl_hizmetturu" Multiplicity="0..1" />
+    <End Type="stajyerModel.tbl_cari" Role="tbl_cari" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_hizmetturu">
+        <PropertyRef Name="IND" />
+      </Principal>
+      <Dependent Role="tbl_cari">
+        <PropertyRef Name="HIZMETTURU" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_tbl_cari_tbl_personel">
     <End Type="stajyerModel.tbl_personel" Role="tbl_personel" Multiplicity="0..1" />
     <End Type="stajyerModel.tbl_cari" Role="tbl_cari" Multiplicity="*" />
@@ -422,15 +374,63 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_tbl_personel_tbl_yorum">
+  <Association Name="FK_tbl_cari_tbl_sektor1">
+    <End Type="stajyerModel.tbl_sektor" Role="tbl_sektor" Multiplicity="0..1" />
+    <End Type="stajyerModel.tbl_cari" Role="tbl_cari" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_sektor">
+        <PropertyRef Name="IND" />
+      </Principal>
+      <Dependent Role="tbl_cari">
+        <PropertyRef Name="SEKTOR" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_cari_tbl_status">
+    <End Type="stajyerModel.tbl_status" Role="tbl_status" Multiplicity="0..1" />
+    <End Type="stajyerModel.tbl_cari" Role="tbl_cari" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_status">
+        <PropertyRef Name="IND" />
+      </Principal>
+      <Dependent Role="tbl_cari">
+        <PropertyRef Name="STATUS" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_cari_tbl_Yetkili">
+    <End Type="stajyerModel.tbl_Yetkili" Role="tbl_Yetkili" Multiplicity="0..1" />
+    <End Type="stajyerModel.tbl_cari" Role="tbl_cari" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Yetkili">
+        <PropertyRef Name="IND" />
+      </Principal>
+      <Dependent Role="tbl_cari">
+        <PropertyRef Name="YETKILI" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_cari_tbl_yorum">
     <End Type="stajyerModel.tbl_yorum" Role="tbl_yorum" Multiplicity="0..1" />
-    <End Type="stajyerModel.tbl_personel" Role="tbl_personel" Multiplicity="*" />
+    <End Type="stajyerModel.tbl_cari" Role="tbl_cari" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="tbl_yorum">
         <PropertyRef Name="IND" />
       </Principal>
-      <Dependent Role="tbl_personel">
-        <PropertyRef Name="PERSONELYORUM" />
+      <Dependent Role="tbl_cari">
+        <PropertyRef Name="PersonelYorum" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_marka_tbl_cari">
+    <End Type="stajyerModel.tbl_cari" Role="tbl_cari" Multiplicity="0..1" />
+    <End Type="stajyerModel.tbl_marka" Role="tbl_marka" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_cari">
+        <PropertyRef Name="IND" />
+      </Principal>
+      <Dependent Role="tbl_marka">
+        <PropertyRef Name="FIRMANO" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

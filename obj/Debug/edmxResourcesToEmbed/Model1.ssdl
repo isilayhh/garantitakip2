@@ -56,6 +56,7 @@
     <Property Name="YETKİLİDGMTARİH" Type="date" />
     <Property Name="HIZMETTURU" Type="int" />
     <Property Name="BASBITTAR" Type="int" />
+    <Property Name="PersonelYorum" Type="int" />
   </EntityType>
   <EntityType Name="tbl_firmaTipi">
     <Key>
@@ -92,7 +93,6 @@
     <Property Name="PERSONELTC" Type="nvarchar" MaxLength="11" />
     <Property Name="PERSONELTEL" Type="nvarchar" MaxLength="15" />
     <Property Name="PERSONELADRES" Type="nvarchar" MaxLength="250" />
-    <Property Name="PERSONELYORUM" Type="int" />
     <Property Name="PERSONELDURUM" Type="bit" />
   </EntityType>
   <EntityType Name="tbl_sektor">
@@ -302,6 +302,18 @@ warning 6002: The table/view 'stajyer.dbo.ViewCari' does not have a primary key 
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_tbl_cari_tbl_yorum">
+    <End Role="tbl_yorum" Type="Self.tbl_yorum" Multiplicity="0..1" />
+    <End Role="tbl_cari" Type="Self.tbl_cari" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_yorum">
+        <PropertyRef Name="IND" />
+      </Principal>
+      <Dependent Role="tbl_cari">
+        <PropertyRef Name="PersonelYorum" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_tbl_marka_tbl_cari">
     <End Role="tbl_cari" Type="Self.tbl_cari" Multiplicity="0..1" />
     <End Role="tbl_marka" Type="Self.tbl_marka" Multiplicity="*" />
@@ -311,18 +323,6 @@ warning 6002: The table/view 'stajyer.dbo.ViewCari' does not have a primary key 
       </Principal>
       <Dependent Role="tbl_marka">
         <PropertyRef Name="FIRMANO" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_tbl_personel_tbl_yorum">
-    <End Role="tbl_yorum" Type="Self.tbl_yorum" Multiplicity="0..1" />
-    <End Role="tbl_personel" Type="Self.tbl_personel" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="tbl_yorum">
-        <PropertyRef Name="IND" />
-      </Principal>
-      <Dependent Role="tbl_personel">
-        <PropertyRef Name="PERSONELYORUM" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -461,13 +461,13 @@ warning 6002: The table/view 'stajyer.dbo.ViewCari' does not have a primary key 
       <End Role="tbl_Yetkili" EntitySet="tbl_Yetkili" />
       <End Role="tbl_cari" EntitySet="tbl_cari" />
     </AssociationSet>
+    <AssociationSet Name="FK_tbl_cari_tbl_yorum" Association="Self.FK_tbl_cari_tbl_yorum">
+      <End Role="tbl_yorum" EntitySet="tbl_yorum" />
+      <End Role="tbl_cari" EntitySet="tbl_cari" />
+    </AssociationSet>
     <AssociationSet Name="FK_tbl_marka_tbl_cari" Association="Self.FK_tbl_marka_tbl_cari">
       <End Role="tbl_cari" EntitySet="tbl_cari" />
       <End Role="tbl_marka" EntitySet="tbl_marka" />
-    </AssociationSet>
-    <AssociationSet Name="FK_tbl_personel_tbl_yorum" Association="Self.FK_tbl_personel_tbl_yorum">
-      <End Role="tbl_yorum" EntitySet="tbl_yorum" />
-      <End Role="tbl_personel" EntitySet="tbl_personel" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

@@ -44,7 +44,7 @@ namespace garantiTakip
                 x.PARABIRIMI,
                 x.IL,
                 x.tbl_personel.PERSONELAD,
-                x.tbl_personel.tbl_yorum.YORUM,
+                x.tbl_yorum.YORUM,
                 x.PERSONELNO,
                
                 x.tbl_status.STATUS,

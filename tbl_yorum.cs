@@ -17,7 +17,7 @@ namespace garantiTakip
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public tbl_yorum()
         {
-            this.tbl_personel = new HashSet<tbl_personel>();
+            this.tbl_cari = new HashSet<tbl_cari>();
         }
     
         public int IND { get; set; }
@@ -25,6 +25,6 @@ namespace garantiTakip
         public Nullable<int> PersonelNo { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tbl_personel> tbl_personel { get; set; }
+        public virtual ICollection<tbl_cari> tbl_cari { get; set; }
     }
 }
